@@ -16,3 +16,6 @@ Here, vault password is required at the time of script execution as to decrypt t
 For now, this script supports installing apps on two environments
 - stage
 - prod
+
+
+ NOTE: Terraform to provision these servers https://github.com/rakesh-kanchalwar/terraform-wt - scaleset_manageddb branch   
