@@ -12,3 +12,7 @@ Then, execute below command,
 ansible-playbook site.yml -i environments/stage --ask-vault-pass
 ```
 Here, vault password is required at the time of script execution as to decrypt the credentials present in the varialbe files.
+
+For now, this script supports installing apps on two environments
+- stage
+- prod

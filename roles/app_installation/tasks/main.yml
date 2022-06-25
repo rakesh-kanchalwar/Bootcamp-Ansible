@@ -1,10 +1,10 @@
 ---
-# - name: Clone weight tracking code from git
-#   git:
-#     repo: https://github.com/rakesh-kanchalwar/bootcamp-app.git
-#     dest: ~/bootcamp-app
-#     clone: yes
-#     update: yes 
+- name: Clone weight tracking code from git
+  git:
+    repo: https://github.com/rakesh-kanchalwar/bootcamp-app.git
+    dest: ~/bootcamp-app
+    clone: yes
+    update: yes 
 
 - name: copy .env file to under cloned repository
   tags: copy
@@ -15,26 +15,26 @@
     group: azureuser
     mode: 0755
 
-# - name: Install node packages
-#   shell: cd ~/bootcamp-app && npm install
-#   args:
-#     executable: /bin/bash
+- name: Install node packages
+  shell: cd ~/bootcamp-app && npm install
+  args:
+    executable: /bin/bash
   
-# - name: Install pm2 
-#   tags: install_pm2
-#   become: true
-#   become_method: sudo
-#   shell: npm install pm2@latest -g
-#   args:
-#     executable: /bin/bash
+- name: Install pm2 
+  tags: install_pm2
+  become: true
+  become_method: sudo
+  shell: npm install pm2@latest -g
+  args:
+    executable: /bin/bash
 
-# - name: start application with pm2 
-#   tags: start_application
-#   shell: pm2 start ~/bootcamp-app/src/index.js --name "wt"
-#   args:
-#     executable: /bin/bash
+- name: start application with pm2 
+  tags: start_application
+  shell: pm2 start ~/bootcamp-app/src/index.js --name "wt"
+  args:
+    executable: /bin/bash
     
-# - name: enable pm2 application for vm restart
-#   shell: sudo env PATH=$PATH:/usr/bin /usr/lib/node_modules/pm2/bin/pm2 startup systemd -u azureuser --hp /home/azureuser
-#   args:
-#     executable: /bin/bash
+- name: enable pm2 application for vm restart
+  shell: sudo env PATH=$PATH:/usr/bin /usr/lib/node_modules/pm2/bin/pm2 startup systemd -u azureuser --hp /home/azureuser
+  args:
+    executable: /bin/bash

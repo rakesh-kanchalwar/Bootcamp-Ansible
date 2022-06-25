@@ -1,5 +1,5 @@
-host: test
-environment: staging
+host: "{{ ansible_default_ipv4.address }}"
+env: stage
 host_url: test
-db_host: staging-db
-okta_org_url: test
+db_host: <stage-db-ip>
+okta_org_url: https://dev-68949001.okta.com
