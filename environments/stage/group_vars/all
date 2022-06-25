@@ -1,5 +1,5 @@
 host: "{{ ansible_default_ipv4.address }}"
 env: stage
 host_url: test
-db_host: <stage-db-ip>
+db_host: stage-dbserver.postgres.database.azure.com
 okta_org_url: https://dev-68949001.okta.com

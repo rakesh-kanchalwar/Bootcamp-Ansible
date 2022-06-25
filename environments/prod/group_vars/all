@@ -1,5 +1,5 @@
 host: "{{ ansible_default_ipv4.address }}"
 env: prod
 host_url: test
-db_host: <prod_db_ip>
+db_host: prod-dbserver.postgres.database.azure.com
 okta_org_url: https://dev-68949001.okta.com

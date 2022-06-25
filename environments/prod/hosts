@@ -1,2 +1,4 @@
 [web_servers]
-20.232.143.138 ansible_port=22
+server1 ansible_host=20.25.32.85 ansible_port=200 ansible_password="{{ server1_pass }}"
+server2 ansible_host=20.25.32.85 ansible_port=201 ansible_password="{{ server2_pass }}"
+server3 ansible_host=20.25.32.85 ansible_port=202 ansible_password="{{ server3_pass }}"

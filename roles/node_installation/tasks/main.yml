@@ -1,4 +1,17 @@
 ---
+- name: Update and upgrade apt packages
+  become: true
+  apt:
+    upgrade: yes
+    update_cache: yes
+
+- name: install postgresql packages 
+  become: true
+  apt: pkg={{ item }} state=present update_cache=yes
+  tags: [packages]
+  with_items:
+    - "postgresql-client"      
+
 - name: Copy script file to remote server
   copy:
     src: script.sh
@@ -11,3 +24,5 @@
   shell: "./script.sh"
   args:
     executable: /bin/bash    
+
+

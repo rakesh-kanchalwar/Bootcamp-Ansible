@@ -19,7 +19,21 @@
   shell: cd ~/bootcamp-app && npm install
   args:
     executable: /bin/bash
-  
+
+- name: Create database 
+  tags: db_setup
+  run_once: true
+  shell: psql "host={{ db_host }} port=5432 dbname=postgres user={{ db_username }} password={{ db_password }}" -c '\x' -c 'CREATE DATABASE weight_tracker;'
+  args:
+    executable: /bin/bash
+
+- name: Create tables 
+  tags: db_setup
+  run_once: true
+  shell: cd ~/bootcamp-app && npm run initdb
+  args:
+    executable: /bin/bash    
+
 - name: Install pm2 
   tags: install_pm2
   become: true
