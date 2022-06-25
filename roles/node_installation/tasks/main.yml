@@ -1,0 +1,59 @@
+---
+# # - name: Add node source repository to apt's resource list
+# #   tags: install_node
+# #   become: true
+# #   become_method: sudo
+# #   apt_repository:
+# #     repo: deb https://deb.nodesource.com/setup_14.x bionic main
+# #     update_cache: true
+
+# # - name: install node 14.x version
+# #   tags: install_node
+# #   become: true
+# #   become_method: sudo
+# #   apt: 
+# #     update_cache: yes
+# #     name: nodejs
+# #     state: present
+# #   when: ansible_distribution == "Ubuntu"
+
+# - name: install node js 14x version 
+#   tags: install_node 
+#   become: true
+#   become_method: sudo
+#   shell: 
+#     cmd: curl -sL https://deb.nodesource.com/setup_14.x | bash - | apt install nodejs
+#     warn: false
+
+# - name: Install nvm
+#   git: repo=https://github.com/creationix/nvm.git dest=~/.nvm version=v0.33.11
+#   tags: nvm
+
+# - name: Source nvm in ~/.{{ item }}
+#   lineinfile: >
+#       dest=~/.{{ item }}
+#       line="source ~/.nvm/nvm.sh"
+#       create=yes
+#   tags: nvm
+#   with_items:
+#     - bashrc
+#     - profile
+
+# - name: Install node
+#   shell: "source ~/.nvm/nvm.sh && nvm install 14.19.3 && nvm alias default 14.19.3"                                 
+#   args:
+#     executable: /bin/bash
+
+
+- name: Copy script file to remote server
+  copy:
+    src: script.sh
+    dest: ~/
+    owner: "{{ ansible_ssh_user }}"
+    group: "{{ ansible_ssh_user }}"
+    mode: 0755
+
+- name: execute remote script 
+  shell: "./script.sh"
+  args:
+    executable: /bin/bash    

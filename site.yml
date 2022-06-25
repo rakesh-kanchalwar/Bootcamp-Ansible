@@ -1,0 +1,8 @@
+---
+- hosts: web_servers 
+  roles: 
+    - node_installation
+    - app_installation
+
+
+

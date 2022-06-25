@@ -1,0 +1,9 @@
+db_name: weight_tracker
+db_username: postgres
+db_password: p0stgr3s
+##############################
+ansible_ssh_user: 'azureuser'
+ansible_password: 'Azure@1986!!'
+##############################
+okta_org_client_id: test
+okta_client_secret: test

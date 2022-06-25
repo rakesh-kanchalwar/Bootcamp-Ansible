@@ -1,0 +1,3 @@
+host: test
+environment: staging
+host_url: test

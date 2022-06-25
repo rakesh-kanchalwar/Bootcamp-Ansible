@@ -1,0 +1,2 @@
+[web_servers]
+20.232.143.138 ansible_port=22
